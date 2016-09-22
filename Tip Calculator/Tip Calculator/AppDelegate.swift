@@ -12,10 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let defaults = NSUserDefaults.standardUserDefaults()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let startInterval = defaults.integerForKey("app_state_interval") ?? Int(NSDate().timeIntervalSince1970)
+        let endInterval = Int(NSDate().timeIntervalSince1970)
+        
+        let keys_to_remove = ["app_state_interval", "current_bill_amount", "selected_tip_percentage", "selected_party_size", "selected_theme"]
+        if (endInterval-startInterval >= 600) {
+            
+            for key in keys_to_remove {
+                defaults.removeObjectForKey(key)
+            }
+        }
         return true
     }
 
@@ -39,6 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        defaults.setInteger(Int(NSDate().timeIntervalSince1970), forKey: "app_state_interval")
+        defaults.synchronize()
+        
     }
 
 
