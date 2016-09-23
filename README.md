@@ -1,10 +1,10 @@
-# Pre-work - *Name of App Here*
+# Pre-work - *Tip Calculator*
 
 **Tip Calculator** is a tip calculator application for iOS.
 
 Submitted by: **Unum Sarfraz**
 
-Time spent: **2** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -15,28 +15,30 @@ The following **required** functionality is complete:
 
 The following **optional** features are implemented:
 * [x] UI animations
-* [x ] Remembering the bill amount across app restarts (if <10mins)
+* [x] Remembering the bill amount across app restarts (if <10mins)
 * [x] Using locale-specific currency and currency thousands separators.
 * [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user does not have to tap anywhere to use this app. Just launch the app and start typing.
-* [x] Add a light/dark color theme to the settings view. In viewWillAppear, update views with the correct theme colors. 
+* [x] Add a light/dark color theme to the settings view. In viewWillAppear, update views with the correct theme colors.
 
 The following **additional** features are implemented:
 * [x] Added tip percentage selector as a slider in settings so that the user can select more tip percentages.
 * [x] Added party size selector as a slider in settings and also added the calculation for individual share.
 * [x] Added shadow effect on tip view controller.
 
-## Video Walkthrough 
+## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/w7qnlDw.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/ozAPJAK.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Challenges encountered while building the app:
-- Adding animations has been challenging so far. But I will try to add it and some other optional features before the deadline.
+Some of the challenges encountered while building the app:
+- Adding animations and effects was challenging initially.
+- Conversions of numbers to and from text/ string and decimal types
+- Maintaining state
 
 ## License
 

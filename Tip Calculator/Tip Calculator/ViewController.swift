@@ -48,9 +48,6 @@ class ViewController: UIViewController {
             billField.text = formatNumber(bill)
         }
         
-        /* calculate tip on existing values
-         */
-        calculateTip()
         /* Bill field is first responder when view
            loads
          */
@@ -64,10 +61,8 @@ class ViewController: UIViewController {
     
     @IBAction func calculateTip() {
         var billAmount = billField.text! ?? ""
-        if (billAmount.characters.count > 1 && billAmount.characters.first == currencySymbol.characters.first) {
-            let index = billAmount.startIndex.advancedBy(1)
-            billAmount = billAmount.substringFromIndex(index)
-        }
+        billAmount = billAmount.stringByReplacingOccurrencesOfString(currencySymbol, withString: "")
+        billAmount = billAmount.stringByReplacingOccurrencesOfString(",", withString: "")
         
         var bill = Double(billAmount) ?? 0.00
         if (bill < 0.00) {
@@ -83,7 +78,7 @@ class ViewController: UIViewController {
         let tip = bill * Double(selectedTip)
         let total = bill + tip
         let individualShare = total/Double(selectedPartySize)
-        
+
         // Display the calculated values
         partySizeLabel.text = String(format: "%d", selectedPartySize)
         tipPercentageLabel.text = String(format: "%.2f%%", selectedTip*100)
